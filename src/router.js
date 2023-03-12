@@ -4,7 +4,8 @@ import Index from "./Pages/Index"
 import Edit from "./Pages/Edit"
 import Show from "./Pages/Show"
 import Create from "./Pages/Create"
-import { indexLoader, monthLoader } from "./loaders";
+import ShowDays from "./Pages/ShowDays"
+import { daysLoader, indexLoader, monthLoader } from "./loaders";
 import ShowYears from "./Pages/ShowYears";
 import ShowMonths from "./Pages/ShowMonths";
 
@@ -15,6 +16,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path = "edit/:id" element = {<Edit/>}/>
             <Route path = "showYears" element = {<ShowYears/>} loader={indexLoader}/>
             <Route path = "showMonths/:year" element = {<ShowMonths/>} loader={monthLoader}/>
+            <Route path = "showDays/:year/:month" element = {<ShowDays/>} loader={daysLoader}/>
             <Route path = "show/:id" element = {<Show/>} />
             <Route path = "create" element = {<Create/>}/>
         </Route>

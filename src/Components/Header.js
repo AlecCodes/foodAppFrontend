@@ -1,7 +1,7 @@
 function Header(props){
     return <nav>
-        <a href = "showYears">Show</a>
-        <a href = "create">Create New</a>
+        <a href = "/showyears">Show</a>
+        <a href = "/create">Create New</a>
     </nav>
 }
 

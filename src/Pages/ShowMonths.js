@@ -1,7 +1,8 @@
-import {useLoaderData} from 'react-router-dom'
+import {useLoaderData, useParams} from 'react-router-dom'
 
-function ShowMonths(props){
+function ShowMonths(props, {params}){
     const uniqueMonths = useLoaderData()
+    const {year} = useParams();
     console.log(uniqueMonths)
     return (<>
         <h1>Index COMPONENT</h1>
@@ -10,6 +11,7 @@ function ShowMonths(props){
             <div className = "dropdown-content">
                 {uniqueMonths.map((element, index) => {
                     return <a 
+                    href = {`../showDays/${year}/${element}`}
                     key = {index}>{element}</a>
                 })}
             </div>
