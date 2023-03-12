@@ -11,7 +11,7 @@ function ShowYears(props){
         <div className="dropdown">
             <button className="dropbtn">Select Year</button>
             <div className = "dropdown-content">
-                {uniqueYears.map((element, index) => {
+                {uniqueYears.sort().map((element, index) => {
                     return <a 
                     href = {`ShowMonths/${element}`}
                     key = {index}
