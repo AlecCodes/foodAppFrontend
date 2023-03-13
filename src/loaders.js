@@ -5,6 +5,11 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
+//Our UI uses String month names but our backend uses
+const YYYYMMFormat = (year, month) => {
+    return `${year}-${(month<10)?`0${month}`:month}`
+}
+
 export const indexLoader = async() => {
     const response = await fetch(URL)
     const data = await response.json()
@@ -20,12 +25,8 @@ export const monthLoader = async({params}) => {
 export const daysLoader = async({params}) => {
     const response = await fetch(URL)
     const data = await response.json()
-    console.log(params.year, params.month)
-    data.forEach((element) => {
-        const monthint = new Date(element.date).getMonth()
-        console.log(monthint.toLocaleString('en-US', {month: 'long'}))
-
-    })
-//    const months = data.filter((element) => element.date.includes(`${params.year}`))
-    return data
+    const yearMonthQuery =  YYYYMMFormat(params.year, monthNames.indexOf(params.month) + 1)
+    const result = data.filter((element) => element.date.includes(yearMonthQuery))
+    console.log(result)
+    return result
 }

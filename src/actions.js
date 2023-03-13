@@ -1,6 +1,7 @@
 import { redirect } from "react-router-dom"
 const URL = 'https://ahtestone.herokuapp.com/foods'
-  
+
+
 export const createAction = async({request}) => {
     const formData = await request.formData()
     const newFood = {
