@@ -3,7 +3,6 @@ import {useLoaderData, useParams} from 'react-router-dom'
 function ShowMonths(props, {params}){
     const uniqueMonths = useLoaderData()
     const {year} = useParams();
-    console.log(uniqueMonths)
     return (<>
         <h1>Index COMPONENT</h1>
         <div className="dropdown">
