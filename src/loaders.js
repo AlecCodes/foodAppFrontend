@@ -19,12 +19,7 @@ export const indexLoader = async() => {
 export const monthLoader = async({params}) => {
     const response = await fetch(URL)
     const data = await response.json()
-    return uniqueMonthsFilter(data.filter((element) => {
-        if (element.date.includes(`${params.year}`)){
-            return element
-        }
-
-    }))
+    return uniqueMonthsFilter(data, params.year)
 }
 
 export const daysLoader = async({params}) => {

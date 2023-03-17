@@ -12,9 +12,18 @@ export const uniqueYearsFilter = (data) => {
     return years.filter(isUnique) 
 }
 
-export const uniqueMonthsFilter = (data) => {
+//Show all months per year in db
+export const uniqueMonthsFilter = (data, year) => {
+
+    const yearData = data.filter((element) => {
+        if (element.date.includes(year)){
+            return element
+        }
+    })
+
+    //Grab the month number and match it to month name, add this into Monthz arr
     const Monthz = []
-    data.forEach((element) =>  {
+    yearData.forEach((element) =>  {
         const monthNum = Number(element.date.slice(5,7)) - 1
         Monthz.push(monthNames[monthNum])
     })
@@ -33,7 +42,6 @@ export const uniqueDaysFilter = (data, year, month) => {
 
     //get YYYY-MM format so can filter for days of a given month
     const yearMonthQuery =  YYYYMMFormat(year, monthNames.indexOf(month) + 1)
-    //Below is the bug. The issue is that we're running a filter on the data, hence useloaderdata in the component returns our raw data, not an array of dates.
     const alldays = []
     data.forEach((element) => {
         if (element.date.includes(yearMonthQuery)){
@@ -41,7 +49,7 @@ export const uniqueDaysFilter = (data, year, month) => {
         }
     })
 
-//    const alldays = data.filter((element) => element.date.includes(yearMonthQuery))
+
     const uniqueDays = alldays.filter(isUnique)
     return uniqueDays
 }
