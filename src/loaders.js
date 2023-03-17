@@ -1,14 +1,7 @@
-import { uniqueMonthsFilter, uniqueYearsFilter, uniqueDaysFilter } from "./filters"
+import { uniqueMonthsFilter, uniqueDaysFilter } from "./filters"
 
 const URL = 'https://ahtestone.herokuapp.com/foods'
-const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
 
-//Our UI uses String month names but our backend uses
-const YYYYMMFormat = (year, month) => {
-    return `${year}-${(month<10)?`0${month}`:month}`
-}
 
 export const indexLoader = async() => {
     const response = await fetch(URL)
