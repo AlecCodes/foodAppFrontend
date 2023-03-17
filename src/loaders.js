@@ -1,4 +1,4 @@
-import { uniqueMonthsFilter, uniqueDaysFilter } from "./filters"
+import { uniqueMonthsFilter, uniqueDaysFilter, dayFilter} from "./filters"
 
 const URL = 'https://ahtestone.herokuapp.com/foods'
 
@@ -19,4 +19,10 @@ export const daysLoader = async({params}) => {
     const response = await fetch(URL)
     const data = await response.json()
     return uniqueDaysFilter(data, params.year, params.month)
+}
+
+export const dayLoader = async({params}) => {
+    const response = await fetch(URL)
+    const data = await response.json()
+    return dayFilter(data, params.day)
 }

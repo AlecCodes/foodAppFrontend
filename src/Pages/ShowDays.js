@@ -10,6 +10,7 @@ function ShowDays(props){
             <div className = "dropdown-content">
                 {uniqueDays.map((element, index) => {
                     return <a 
+                    href = {`../../showDay/${element}`}
                     key = {index}>{element}</a>
                 })}
             </div>

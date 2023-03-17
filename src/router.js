@@ -5,9 +5,10 @@ import Edit from "./Pages/Edit"
 import Show from "./Pages/Show"
 import Create from "./Pages/Create"
 import ShowDays from "./Pages/ShowDays"
-import { daysLoader, indexLoader, monthLoader } from "./loaders";
+import { dayLoader, daysLoader, indexLoader, monthLoader } from "./loaders";
 import ShowYears from "./Pages/ShowYears";
 import ShowMonths from "./Pages/ShowMonths";
+import ShowDay from './Pages/ShowDay'
 import { createAction } from "./actions";
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path = "showYears" element = {<ShowYears/>} loader={indexLoader}/>
             <Route path = "showMonths/:year" element = {<ShowMonths/>} loader={monthLoader}/>
             <Route path = "showDays/:year/:month" element = {<ShowDays/>} loader={daysLoader}/>
+            <Route path = "showDay/:day" element = {<ShowDay/>} loader={dayLoader}/>
             <Route path = "show/:id" element = {<Show/>} />
             <Route path = "create" element = {<Create/>} action={createAction}/>
         </Route>

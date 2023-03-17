@@ -53,3 +53,7 @@ export const uniqueDaysFilter = (data, year, month) => {
     const uniqueDays = alldays.filter(isUnique)
     return uniqueDays
 }
+
+export const dayFilter = (data, day) => {
+    return data.filter((element) => element.date === day)
+}
