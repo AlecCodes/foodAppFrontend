@@ -19,3 +19,19 @@ export const createAction = async({request}) => {
     )
     return redirect('/')
 }
+
+export const editAction = async({request, params}) => {
+    const formData = await request.formData()
+    const newFood = {
+        name: formData.get("name"),
+        carbs: formData.get("carbs"),
+        date: formData.get("date")
+    }
+    await fetch (URL + '/' + params.id, {
+        method: "put",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(newFood)
+        }
+    )
+    return redirect('/')
+}

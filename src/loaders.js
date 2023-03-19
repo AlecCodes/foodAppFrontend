@@ -26,3 +26,9 @@ export const dayLoader = async({params}) => {
     const data = await response.json()
     return dayFilter(data, params.day)
 }
+
+export const singleDayLoader = async({params}) => {
+    const response = await fetch(URL+'/'+params.id)
+    const data = await response.json()
+    return data
+}
