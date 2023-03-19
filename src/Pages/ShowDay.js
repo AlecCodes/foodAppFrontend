@@ -1,4 +1,4 @@
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData, Link, Form } from "react-router-dom";
 
 function ShowDay(props){
     const dayData = useLoaderData()
@@ -12,7 +12,11 @@ function ShowDay(props){
                     <td>{element.name}</td>
                     <td>{element.carbs}g carbs</td>
                     <td><Link to = {`../../edit/${element.id}`}>Edit</Link></td>
-                    <td><Link>Delete</Link></td>
+                    <td>
+                        <Form action = {`/delete/${element.id}`} method='post'>
+                            <input type = 'submit' value='delete'/>
+                        </Form>
+                    </td>
                 </tr>
                 )
             })}

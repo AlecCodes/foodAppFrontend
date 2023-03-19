@@ -9,13 +9,14 @@ import { dayLoader, daysLoader, indexLoader, monthLoader, singleDayLoader } from
 import ShowYears from "./Pages/ShowYears";
 import ShowMonths from "./Pages/ShowMonths";
 import ShowDay from './Pages/ShowDay'
-import { createAction, editAction } from "./actions";
+import { createAction, editAction, deleteAction} from "./actions";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
         <Route path = "/" element ={<App/>}>
             <Route path = "" element = {<Index/>} loader={indexLoader}/>
             <Route path = "edit/:id" element = {<Edit/>} loader={singleDayLoader} action={editAction}/>
+            <Route path = "delete/:id" action={deleteAction}/>
             <Route path = "showYears" element = {<ShowYears/>} loader={indexLoader}/>
             <Route path = "showMonths/:year" element = {<ShowMonths/>} loader={monthLoader}/>
             <Route path = "showDays/:year/:month" element = {<ShowDays/>} loader={daysLoader}/>

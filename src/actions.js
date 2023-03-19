@@ -35,3 +35,10 @@ export const editAction = async({request, params}) => {
     )
     return redirect('/')
 }
+
+export const deleteAction = async({request, params}) => {
+    await fetch(URL + '/' + params.id, {
+        method: "delete"
+    })
+    return redirect('/showYears')
+}
