@@ -31,6 +31,18 @@ function Create(props){
                 value = {nameState}
                 onChange={nameChangeHandler}
                 />
+                {resultsState.length > 0 && (
+                    <ul>
+                        {resultsState.map((suggestion) => {
+                            return<li
+                            key={suggestion.food_name}
+                            >
+                            <span>{suggestion.food_name}</span>
+                            <span>{suggestion.serving_qty} {suggestion.serving_unit}</span>
+                            </li>
+                        })}
+                    </ul>
+                )}
             </div>
 
             <input type = 'number' name = 'carbs' placeholder='carbs'
