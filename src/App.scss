@@ -1,7 +1,42 @@
-.autosuggest{
+.autosuggest {
   position: relative;
   display: inline-block;
+  input {
+    width: 300px;
+  }
+  li {
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    .foodname{
+      justify-self: flex-start;
+      text-align: start;
+    }
+    .foodqty{
+      margin-left: 10px;
+    }
+  }
+  li:hover {
+    background-color: #f4f4f4;
+  }
 }
+
+.autosuggest ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  background-color: white;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
 
 
 .dropbtn {

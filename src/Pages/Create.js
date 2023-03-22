@@ -6,6 +6,7 @@ import {nutritionGetter} from '../Nutritionix/nutritionGetter'
 function Create(props){
     const [nameState, setNameState] = useState('')
     const [carbState, setCarbState] = useState(0)
+    const [dateState, setDateState] = useState({myDateField: new Date().toISOString().split('T')[0]})
     const [resultsState, setResultsState] = useState('')
 
 
@@ -25,6 +26,9 @@ function Create(props){
     function carbChangeHandler(event){
         setCarbState(event.target.value)
     }
+    function dateChangeHandler(event){
+        setDateState(event.target.value)
+    }
 /////////////////////////////////////////////
 // Click Handlers
 /////////////////////////////////////////////
@@ -35,7 +39,7 @@ function Create(props){
     }
 
 
-
+    console.log(dateState.myDateField)
     return (
     <>
         <h1>Create COMPONENT</h1>
@@ -52,8 +56,8 @@ function Create(props){
                             key={suggestion.food_name}
                             onClick={() => handleSuggestionClick(suggestion.food_name)}
                             >
-                            <span>{suggestion.food_name}</span>
-                            <span>{suggestion.serving_qty} {suggestion.serving_unit}</span>
+                            <span className='foodname'>{suggestion.food_name}</span>
+                            <span className='foodqty'>{suggestion.serving_qty} {suggestion.serving_unit}</span>
                             </li>
                         })}
                     </ul>
@@ -65,7 +69,10 @@ function Create(props){
             value={carbState}
             />
 
-            <input type = 'date' name = 'date' placeholder='date'/>
+            <input type = 'date' name = 'date' placeholder='date'
+            value={dateState.myDateField}
+            onChange={dateChangeHandler}
+            />
 
             <input type = 'submit'/>
         </Form>
