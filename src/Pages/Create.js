@@ -37,9 +37,7 @@ function Create(props){
         nutritionGetter(foodname).then(json => setCarbState(json.foods[0].nf_total_carbohydrate))
         setResultsState([])
     }
-
-
-    console.log(dateState.myDateField)
+    
     return (
     <>
         <h1>Create COMPONENT</h1>
@@ -68,7 +66,7 @@ function Create(props){
             onChange={carbChangeHandler}
             value={carbState}
             />
-
+            
             <input type = 'date' name = 'date' placeholder='date'
             value={dateState.myDateField}
             onChange={dateChangeHandler}

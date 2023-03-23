@@ -6,7 +6,7 @@ export const createAction = async({request}) => {
     const formData = await request.formData()
     const newFood = {
         name: formData.get("name"),
-        carbs: formData.get("carbs"),
+        carbs: Math.round(formData.get("carbs")),
         date: formData.get("date")
     }
     console.log(newFood)
@@ -24,7 +24,7 @@ export const editAction = async({request, params}) => {
     const formData = await request.formData()
     const newFood = {
         name: formData.get("name"),
-        carbs: formData.get("carbs"),
+        carbs: Math.round(formData.get("carbs")),
         date: formData.get("date")
     }
     await fetch (URL + '/' + params.id, {
