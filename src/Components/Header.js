@@ -1,7 +1,10 @@
+import {Link} from 'react-router-dom'
+
 function Header(props){
     return <nav>
-        <a href = "showyears">Show</a>
-        <a href = "create">Create New</a>
+        <Link to='showyears'>Show</Link>
+        <Link to='create'>Create New</Link>
+
     </nav>
 }
 
