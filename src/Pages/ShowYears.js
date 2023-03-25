@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, Link} from "react-router-dom"
 import { uniqueYearsFilter } from "../filters"
 
 function ShowYears(props){
@@ -12,10 +12,10 @@ function ShowYears(props){
             <button className="dropbtn">Select Year</button>
             <div className = "dropdown-content">
                 {uniqueYears.sort().map((element, index) => {
-                    return <a 
-                    href = {`ShowMonths/${element}`}
+                    return <Link 
+                    to = {`../showMonths/${element}`}
                     key = {index}
-                    >{element}</a>
+                    >{element}</Link>
                 })}
             </div>
         </div>

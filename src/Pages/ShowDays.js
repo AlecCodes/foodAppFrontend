@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, Link } from "react-router-dom"
 
 function ShowDays(props){
     const uniqueDays = useLoaderData()
@@ -9,9 +9,9 @@ function ShowDays(props){
             <button className="dropbtn">Select Day</button>
             <div className = "dropdown-content">
                 {uniqueDays.map((element, index) => {
-                    return <a 
-                    href = {`../../showDay/${element}`}
-                    key = {index}>{element}</a>
+                    return <Link 
+                    to = {`../../showDay/${element}`}
+                    key = {index}>{element}</Link>
                 })}
             </div>
         </div>
