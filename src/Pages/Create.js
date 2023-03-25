@@ -60,10 +60,11 @@ function Create(props){
             setRatioState(newRatio)
         }
     }, [carbState, qtyState])
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
     useEffect(() => {
         const netCarbs = ratioState*qtyState
         setCarbState(netCarbs)
+// eslint-disable-next-line react-hooks/exhaustive-deps
     }, [qtyState])
 
 return (
