@@ -6,8 +6,7 @@ function ShowYears(props){
     const uniqueYears = uniqueYearsFilter(data)
     
     return (
-    <>
-        <h1>Show YEARS COMPONENT</h1>
+    <div className="container">
         <div className="dropdown">
             <button className="dropbtn">Select Year</button>
             <div className = "dropdown-content">
@@ -20,7 +19,7 @@ function ShowYears(props){
             </div>
         </div>
 
-    </>
+    </div>
     )
 }
 

@@ -4,7 +4,9 @@ function Edit(props){
     const data = useLoaderData()
     return (
         <>
-        <h1>Yo</h1>
+        <h2
+        className="p-4"
+        >Set the record straight</h2>
         <Form action = {`/edit/${data.id}`} method = "post">
             <input type="text" name="name" defaultValue={data.name}></input>
             <input type="date" name="date" defaultValue={data.date}></input>

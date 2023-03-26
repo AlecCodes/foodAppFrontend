@@ -32,17 +32,32 @@ function Header(props){
     // </nav>
 
     const [showTabState, setShowTabState] = useState('')
+    const [createTabState, setCreateTabState] = useState('')
+///////////////////////////
+// Click Handler
+///////////////////////////
+    function showClickHandler(){
+        setShowTabState('active')
+        setCreateTabState('')
+    }
+
+    function createClickHandler(){
+        setCreateTabState('active')
+        setShowTabState('')
+    }
 
     return (
     <ul className='nav nav-tabs'>
         <li>
             <Link to='showyears'
-            className={`nav-link`}
+            onClick={showClickHandler}
+            className={`nav-link ${showTabState}`}
             > Show </Link>
         </li>
         <li>
             <Link to='create'
-            className={`nav-link`}
+            onClick={createClickHandler}
+            className={`nav-link ${createTabState}`}
             > Create </Link>
         </li>
     </ul>
