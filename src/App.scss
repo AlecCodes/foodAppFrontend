@@ -2,12 +2,16 @@
   background-color: #04AA6D;
 }
 
+.form-control{
+  width: 300px;
+  justify-self: center;
+}
+
 .autosuggest {
+
   position: relative;
   display: inline-block;
-  input {
-    width: 300px;
-  }
+
   li {
     padding: 5px;
     cursor: pointer;

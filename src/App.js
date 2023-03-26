@@ -6,6 +6,12 @@ import {Outlet} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
+      <div className='d-flex justify-content-end'>
+        <h1>Carb Diary</h1>
+      </div>
+      <h3 className='d-flex justify-content-end lead'>
+        Created by Alec Hannaford
+      </h3>
       <Header/>
       <Outlet/>
     </div>

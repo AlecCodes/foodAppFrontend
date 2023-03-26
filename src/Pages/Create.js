@@ -68,10 +68,17 @@ function Create(props){
 
 return (
     <>
-        <h1>Create COMPONENT</h1>
-        <Form autoComplete='off' action="/create" method ="post">
-            <div className='autosuggest'>
-                <input type = 'text' name = 'name' placeholder='Food Name'
+        <h2
+        className='p-4'
+        >New Record</h2>
+        <Form 
+        className='container createForm'
+        autoComplete='off' action="/create" method ="post">
+            <div className='autosuggest form-group'>
+                <label>Food Name</label>                
+                <input 
+                className='form-control'
+                type = 'text' name = 'name' placeholder='Food Name'
                 value = {nameState}
                 onChange={nameChangeHandler}
                 />
@@ -89,23 +96,39 @@ return (
                     </ul>
                 )}
             </div>
-            
-            <input type = 'number' placeholder='quantity'
-            onChange={qtyChangeHandler}
-            value={qtyState}
-            />
+            <div className='form-group d-flex justify-content-center align-items-center'>
+                <label>Quantity</label>
+                <input 
+                className='form-control'
+                type = 'number' placeholder='quantity'
+                onChange={qtyChangeHandler}
+                value={qtyState}
+                />
+            </div>
+                        
 
-            <input type = 'number' name = 'carbs' placeholder='carbs'
-            onChange={carbChangeHandler}
-            value={carbState}
-            />
-
-            <input type = 'date' name = 'date' placeholder='date'
-            value={dateState.myDateField}
-            onChange={dateChangeHandler}
-            />
-
-            <input type = 'submit'/>
+            <div className='form-group d-flex justify-content-center align-items-center'>
+                <label>Carbs</label>
+                <input 
+                className='form-control'
+                type = 'number' name = 'carbs' placeholder='carbs'
+                onChange={carbChangeHandler}
+                value={carbState}
+                />
+            </div>
+ 
+            <div className='form-group d-flex justify-content-center align-items-center'>
+                <label>Date Consumed</label>    
+                <input 
+                className='form-control'
+                type = 'date' name = 'date' placeholder='date'
+                value={dateState.myDateField}
+                onChange={dateChangeHandler}
+                />
+            </div>
+            <input 
+            className='btn btn-primary m-4'
+            type = 'submit'/>
         </Form>
     </>)
 }
