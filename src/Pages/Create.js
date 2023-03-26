@@ -67,7 +67,7 @@ function Create(props){
     }, [qtyState])
 
 return (
-    <>
+    <div className='createpage'>
         <h2
         className='p-4'
         >New Record</h2>
@@ -130,7 +130,7 @@ return (
             className='btn btn-primary m-4'
             type = 'submit'/>
         </Form>
-    </>)
+    </div>)
 }
 
 export default Create

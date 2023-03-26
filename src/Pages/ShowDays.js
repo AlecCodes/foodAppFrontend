@@ -3,7 +3,7 @@ import { useLoaderData, Link } from "react-router-dom"
 function ShowDays(props){
     const uniqueDays = useLoaderData()
     return (
-        <div className="container">
+        <div className="container showpage">
             <div className="dropdown">
                 <button className="dropbtn">Select Day</button>
                 <div className = "dropdown-content">

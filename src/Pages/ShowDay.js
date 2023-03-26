@@ -3,7 +3,7 @@ import { useLoaderData, Link, Form } from "react-router-dom";
 function ShowDay(props){
     const dayData = useLoaderData()
     return (
-        <div className="container">
+        <div className="container showpage overflow-auto">
             <h2
             className=" 
             mt-4 mb-4
