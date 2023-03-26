@@ -67,12 +67,11 @@ function Create(props){
     }, [qtyState])
 
 return (
+    <>
+    <h2 className='p-4'>New Record</h2>
     <div className='createpage'>
-        <h2
-        className='p-4'
-        >New Record</h2>
         <Form 
-        className='container createForm'
+        className= 'createForm'
         autoComplete='off' action="/create" method ="post">
             <div className='autosuggest form-group'>
                 <label>Food Name</label>                
@@ -95,42 +94,47 @@ return (
                         })}
                     </ul>
                 )}
-            </div>
-            <div className='form-group d-flex justify-content-center align-items-center'>
-                <label>Quantity</label>
-                <input 
-                className='form-control'
-                type = 'number' placeholder='quantity'
-                onChange={qtyChangeHandler}
-                value={qtyState}
-                />
-            </div>
-                        
+            </div>                        
+            <div className='d-flex pt-4 flex-column justify-content-center align-items-center container'>
 
-            <div className='form-group d-flex justify-content-center align-items-center'>
-                <label>Carbs</label>
-                <input 
-                className='form-control'
-                type = 'number' name = 'carbs' placeholder='carbs'
-                onChange={carbChangeHandler}
-                value={carbState}
-                />
-            </div>
- 
-            <div className='form-group d-flex justify-content-center align-items-center'>
-                <label>Date Consumed</label>    
-                <input 
-                className='form-control'
-                type = 'date' name = 'date' placeholder='date'
-                value={dateState.myDateField}
-                onChange={dateChangeHandler}
-                />
+                <div className='form-group'>
+                    <label>Quantity</label>
+                    <input 
+                    className='form-control'
+                    type = 'number' placeholder='quantity'
+                    onChange={qtyChangeHandler}
+                    value={qtyState}
+                    />
+                </div>
+
+
+                <div className='form-group'>
+                    <label>Carbs</label>
+                    <input 
+                    className='form-control'
+                    type = 'number' name = 'carbs' placeholder='carbs'
+                    onChange={carbChangeHandler}
+                    value={carbState}
+                    />
+                </div>
+    
+                <div className='form-group'>
+                    <label>Date Consumed</label>    
+                    <input 
+                    className='form-control'
+                    type = 'date' name = 'date' placeholder='date'
+                    value={dateState.myDateField}
+                    onChange={dateChangeHandler}
+                    />
+                </div>
             </div>
             <input 
             className='btn btn-primary m-4'
             type = 'submit'/>
         </Form>
-    </div>)
+    </div>
+    </>
+    )
 }
 
 export default Create
