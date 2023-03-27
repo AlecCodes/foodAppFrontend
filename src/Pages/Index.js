@@ -1,11 +1,11 @@
 import {useLoaderData} from 'react-router-dom'
-import {returnMax, getHighScore} from '../filters'
+import {returnMax, getHighScore, getDailyAvg} from '../filters'
 
 function Index(props){
     const data = useLoaderData()
     const max = returnMax(data)
     const record = getHighScore(data)
-
+    const avg = getDailyAvg(data)
 
     return (
     <div className='indexpage'>
@@ -17,8 +17,8 @@ function Index(props){
                     <td>{max}</td>
                 </tr>
                 <tr>
-                    <td>yo</td>
-                    <td>yo</td>
+                    <td>Avg daily carb intake:</td>
+                    <td>{avg}</td>
                 </tr>
             </tbody>
         </table>

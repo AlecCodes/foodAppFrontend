@@ -72,10 +72,10 @@ export function returnMax(arr){
     return(result)
 }
 
-//Find the top score
-export function getHighScore(arr){
-    //hashmap of key date - value array of foods 
-    const dateHash = arr.reduce((acc, obj) => {
+
+//hashmap of key date - value array of foods per day 
+export function getDateHash(dataArr){
+    return dataArr.reduce((acc, obj) => {
         const key = obj.date;
         if (!acc[key]) {
           acc[key] = [];
@@ -83,9 +83,11 @@ export function getHighScore(arr){
         acc[key].push(obj);
         return acc;
       }, {});
-      
-      //hashmap of key date - value net carbs
-      const totalsHash = Object.values(dateHash).reduce((acc, arr) => {
+}
+
+//Totals per day hash
+export function getTotalsHash(dateHash){
+    return Object.values(dateHash).reduce((acc, arr) => {
         const key = arr[0].date
         if (!acc[key]){
             acc[key] = 0;
@@ -96,7 +98,18 @@ export function getHighScore(arr){
             },0)
         return acc
       }, {})
+}
 
+//Find daily avg
+export function getDailyAvg(arr){
+    const totals = Object.values(getTotalsHash(getDateHash(arr)))
+    const avg = totals.reduce((acc, total) => acc + total)/totals.length
+    return avg 
+}
+
+//Find the top score
+export function getHighScore(arr){
+      const totalsHash = getTotalsHash(getDateHash(arr))
       const pr = Object.entries(totalsHash).sort((a,b) => b[1] - a[1])[0]
       return pr
 }
