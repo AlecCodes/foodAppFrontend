@@ -57,3 +57,46 @@ export const uniqueDaysFilter = (data, year, month) => {
 export const dayFilter = (data, day) => {
     return data.filter((element) => element.date === day)
 }
+
+
+export function returnMax(arr){
+    let count = 0
+    let result = 'None'
+    arr.forEach((element,index,arr) => {
+        const nameCount = arr.filter((e) => e.name === element.name)
+        if (nameCount.length > count){
+            count = nameCount.length
+            result = element.name
+        }
+    })
+    return(result)
+}
+
+//Find the top score
+export function getHighScore(arr){
+    //hashmap of key date - value array of foods 
+    const dateHash = arr.reduce((acc, obj) => {
+        const key = obj.date;
+        if (!acc[key]) {
+          acc[key] = [];
+        }
+        acc[key].push(obj);
+        return acc;
+      }, {});
+      
+      //hashmap of key date - value net carbs
+      const totalsHash = Object.values(dateHash).reduce((acc, arr) => {
+        const key = arr[0].date
+        if (!acc[key]){
+            acc[key] = 0;
+        }
+        acc[key] += arr.reduce((total, food) =>{
+            total += food.carbs
+            return total
+            },0)
+        return acc
+      }, {})
+
+      const pr = Object.entries(totalsHash).sort((a,b) => b[1] - a[1])[0]
+      return pr
+}
