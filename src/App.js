@@ -9,6 +9,7 @@ function App() {
     <div className="App bg-secondary">
       <div className='container bg-light p-0'>
         <div className='d-flex justify-content-end p-2'>
+          <img src='https://en.wiktionary.org/wiki/glucose#/media/File:Beta-D-glucose-from-xtal-3D-balls.png'/>
           <h1>Carb Diary</h1>
         </div>
         <h3 className='d-flex justify-content-end lead p-2'>

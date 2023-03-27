@@ -19,7 +19,7 @@ function Create(props){
         setNameState(event.target.value)
         //confirm we're not breaking search/instant endpoint w null value
         if (event.target.value.length >= 1){
-            //async to wait for api
+            //async to wait for api, then load results into resultstate(populate the dropdown)
             const data = await searchResult(event)
             setResultsState(data.common.concat(data.branded))
         }else{
@@ -43,7 +43,7 @@ function Create(props){
 // Click Handlers
 /////////////////////////////////////////////
 
-    //Change to async function??? Then call setCarbState once promise fulfilled?
+    //async to wait for nutritiongetter to load then set CarbState to the return value from API
     async function handleSuggestionClick(suggestion){
         setNameState(suggestion.food_name)
         setQtyState(suggestion.serving_qty)
@@ -72,6 +72,7 @@ return (
         <Form 
         className= 'createForm'
         autoComplete='off' action="/create" method ="post">
+            {/* Autosuggest form gets seperate div container than rest of inputs */}
             <div className='autosuggest form-group'>
                 <label>Food Name</label>                
                 <input 
