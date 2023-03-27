@@ -67,9 +67,8 @@ function Create(props){
     }, [qtyState])
 
 return (
-    <>
-    <h2 className='p-4'>New Record</h2>
     <div className='createpage'>
+        <h2 className='p-4'>New Record</h2>
         <Form 
         className= 'createForm'
         autoComplete='off' action="/create" method ="post">
@@ -95,7 +94,7 @@ return (
                     </ul>
                 )}
             </div>                        
-            <div className='d-flex pt-4 flex-column justify-content-center align-items-center container'>
+            <div className='d-flex flex-column justify-content-center align-items-center container'>
 
                 <div className='form-group'>
                     <label>Quantity</label>
@@ -109,7 +108,7 @@ return (
 
 
                 <div className='form-group'>
-                    <label>Carbs</label>
+                    <label>Carbs (g)</label>
                     <input 
                     className='form-control'
                     type = 'number' name = 'carbs' placeholder='carbs'
@@ -133,7 +132,6 @@ return (
             type = 'submit'/>
         </Form>
     </div>
-    </>
     )
 }
 
