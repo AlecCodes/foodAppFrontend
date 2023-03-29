@@ -43,6 +43,13 @@ function Create(props){
 // Click Handlers
 /////////////////////////////////////////////
 
+    //prevent enter key
+    function enterKeyDown(e){
+        if (e.key === 'Enter'){
+            e.preventDefault();
+        }
+    }
+
     //async to wait for nutritiongetter to load then set CarbState to the return value from API
     async function handleSuggestionClick(suggestion){
         setNameState(suggestion.food_name)
@@ -69,7 +76,8 @@ function Create(props){
 return (
     <div className='createpage'>
         <h2 className='p-4'>New Record</h2>
-        <Form 
+        <Form
+        onKeyDown={(e) => enterKeyDown(e)}
         className= 'createForm'
         autoComplete='off' action="/create" method ="post">
             {/* Autosuggest form gets seperate div container than rest of inputs */}
@@ -128,9 +136,9 @@ return (
                     />
                 </div>
             </div>
-            <input 
+            <button 
             className='btn btn-primary m-4'
-            type = 'submit'/>
+            type = 'submit'>submit</button>
         </Form>
     </div>
     )
