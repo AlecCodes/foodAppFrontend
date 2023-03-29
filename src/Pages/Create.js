@@ -96,8 +96,15 @@ return (
                             key={suggestion.food_name}
                             onClick={() => handleSuggestionClick(suggestion)}
                             >
+                            <span
+                            className='foodimg'>
+                                <img
+                                className='w-100 h-100'
+                                src={suggestion.photo.thumb}></img>
+                            </span>
                             <span className='foodname'>{suggestion.food_name}</span>
                             <span className='foodqty'>{suggestion.serving_qty} {suggestion.serving_unit}</span>
+ 
                             </li>
                         })}
                     </ul>
