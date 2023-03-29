@@ -43,6 +43,13 @@ function Create(props){
 // Click Handlers
 /////////////////////////////////////////////
 
+    //close dropdown when clicked elsewhere
+    function closeDropdown(e){
+        if (e.target.tagName !== "LI"){
+        setResultsState([])
+        }
+    }
+
     //prevent enter key
     function enterKeyDown(e){
         if (e.key === 'Enter'){
@@ -74,7 +81,9 @@ function Create(props){
     }, [qtyState])
 
 return (
-    <div className='createpage'>
+    <div className='createpage'
+    onClick={(e) => closeDropdown(e)}
+    >
         <h2 className='p-4'>New Record</h2>
         <Form
         onKeyDown={(e) => enterKeyDown(e)}
@@ -93,6 +102,7 @@ return (
                     <ul>
                         {resultsState.map((suggestion) => {
                             return<li
+                            className='item'
                             key={suggestion.food_name}
                             onClick={() => handleSuggestionClick(suggestion)}
                             >
