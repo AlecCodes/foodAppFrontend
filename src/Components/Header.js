@@ -29,6 +29,13 @@ function Header(props){
 
 
     return (
+    <>
+    <div className='d-flex justify-content-end p-2'>
+        <h1>Carb Diary</h1>
+    </div>
+    <h3 className='d-flex justify-content-end lead p-2'>
+        Created by Alec Hannaford
+    </h3>
     <ul className='nav nav-tabs'>
         <li>
             <Link to='showyears'
@@ -50,6 +57,7 @@ function Header(props){
             Home</Link>
         </li>
     </ul>
+    </>
     )
 }
 
