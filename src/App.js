@@ -1,6 +1,7 @@
 import './App.scss';
 import Header from "./Components/Header"
 import {Outlet} from 'react-router-dom'
+import Footer from "./Components/Footer"
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Outlet/>
       </div>
     </div>
+    <Footer/>
   </div>
   );
 }
